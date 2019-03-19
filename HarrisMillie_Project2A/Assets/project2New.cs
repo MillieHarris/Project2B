@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class project2New : MonoBehaviour
 {
-    public int Speed;
-    public float directionChangeChance = 0.01f;
+    public float Speed;
+    public float directionChangeChance = 0.1f;
     public GameObject Container;
     public GameObject Penguin;
     public GameObject Bucket;
@@ -17,7 +17,10 @@ public class project2New : MonoBehaviour
     Vector3 Direction = Vector3.right;
     public GameObject prefabInstance;
     public int counter = 0;
-
+    public AudioSource Audio;
+    public int score;
+    public float acceleration = .5f;
+    public int penspeed = 6;
     
 
     public void SpawnPrefab()
@@ -32,12 +35,17 @@ public class project2New : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        Speed = Random.Range(6, 12);
+        Speed = 8;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Speed > 0 == true)
+        { Speed += Time.deltaTime * acceleration; }
+        if (Speed < 0 == true)
+        { Speed -= Time.deltaTime * acceleration; }
+
         if (Input.GetMouseButtonDown(0) == true)
         { Time.timeScale = 1; }
 
@@ -45,6 +53,7 @@ public class project2New : MonoBehaviour
         counter += 1;
         if (counter % 40 == 0 && Time.timeScale == 1)
         { SpawnPrefab(); }
+
 
 
         MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -89,9 +98,13 @@ public class project2New : MonoBehaviour
         botcol botscript = GameObject.Find("bottom").GetComponent<botcol>();
         //pencol penscript = GetComponent<pencol>();
 
+
+        
+
         if (botscript.Lives == 0)
         {
-            SceneManager.LoadScene("SampleScene");
+
+            SceneManager.LoadScene("Restart");
 
             /*botscript.Lives = 3;
             penscript.Score = 0;
@@ -100,4 +113,8 @@ public class project2New : MonoBehaviour
 
         }
     }
+
+    public void Home()
+    { SceneManager.LoadScene("Title Screen"); }
+
 }

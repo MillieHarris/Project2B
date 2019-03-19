@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: df2f2c05a41b8c24a828d6de11ee80d8
+  - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: 1ef85a6bd3e1fa14c86c7ec24941a896
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: a1a86f1b63193ed43bc2acf753eca04c
+  - enabled: 0
+    path: Assets/HighScores.unity
+    guid: 312f8f344e2ca2b439d0b457e823d5c8
+  - enabled: 1
+    path: Assets/Scenes/HighScores.unity
+    guid: 4689fca8396ba5646a50ddf7d71e068d
   m_configObjects: {}

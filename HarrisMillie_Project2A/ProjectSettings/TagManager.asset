@@ -7,6 +7,8 @@ TagManager:
   - Bottom
   - penguin
   - Fish
+  - gameMusic
+  - music
   layers:
   - Default
   - TransparentFX

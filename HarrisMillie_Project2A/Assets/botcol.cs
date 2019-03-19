@@ -31,11 +31,13 @@ public class botcol : MonoBehaviour
 
 
         if (collision.gameObject.tag == "Fish")
-        {
+        {   if (PlayerPrefs.HasKey("SFXvolume"))
+            { GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFXvolume"); }
             Lives -= 1;
             Destroy(collision.gameObject);
             GetComponent<AudioSource>().Play();
 
         }
+
     }
 }

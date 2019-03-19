@@ -25,6 +25,8 @@ public class pencol : MonoBehaviour
 
         scoreText.text = "Score: " + Score.ToString();
 
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,7 +38,10 @@ public class pencol : MonoBehaviour
         if (collision.gameObject.tag == "Fish")
         {
             Score += 1;
+            PlayerPrefs.SetInt("score", Score);
             Destroy(collision.gameObject);
+            if (PlayerPrefs.HasKey("SFXvolume"))
+            { GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFXvolume"); }
             GetComponent<AudioSource>().Play();
 
         }
